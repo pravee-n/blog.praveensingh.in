@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta property="og:image" content="http://blog.praveensingh.in/images/gsoc_2013_logo.jpg" />
+		<title>
+			GSoC 2013 Summary - Blog|Praveen Singh
+		</title>
+		<link rel="stylesheet" href="../../css/github.css">
+		<link rel="stylesheet/less" href="../../css/main.less">
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:300" rel="stylesheet" type="text/css">
+		<script src="../../js/less.js"></script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-43058598-1', 'praveensingh.in');
+			ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="header"><a href="/" class="back">Home</a><a href="/archive.html" class="archive">Archives</a>
+				<h1>GSoC 2013 Wrap-up: jQuery.IME extensions for Firefox and Chrome</h1>
+				<p><span class="author">8th August, 2013</span>
+				</p>
+			</div>
+		</header>
+		<div id="content">
+			<article class="post single">
+				<section class="content">
+					<p>
+						I participated in the Google Summer of Code program, working for the Wikimedia Foundation. I had a really great time working with the Wikimedia community last four months. It was by far my best experience while working on an opensource project. 
+					</p>
+
+					<p>
+						I have been working on the jQuery.IME project this summer. jQuery.IME is a jQuery based input method editor library supporting more than 155 input methods across more than 50 languages. It allows you to write in more than 50 languages using the default keyboard layout.
+						As of now jQuery.IME is provided from the Wikimedia servers. Hence it is only available in Wikimedia projects such as Wikipedia and MediaWiki. The motive behind this WMF project is to provide language technology tools to a wider audience outside the Wikimedia universe. Porting it completely to the client side, in the form of browser extensions, would enable its usage on any website across the web. It would allow users to type in their native language on any website using the same default keyboard layout. For example, one can do a google search in, say, Hindi language.
+					</p>
+
+					<h3>Proposed deliverables</h3>
+
+					<p>
+						<ul>
+							<li>
+								Porting jQuery.IME to Mozilla Firefox addon	
+							</li>
+							<li>
+								Porting jQuery.IME to Google Chrome Extension	
+							</li>
+							<li>
+								Implement on demand loading of input methods
+							</li>
+							<li>
+								Implement a mechanism to update the extensions from the upstream project with minimal manual effort
+							</li>
+							<li>
+								Integrate Universal Language Selector to provide users an easy way to select any particular language
+							</li>
+							<li>
+								Add support for contenteditable divs in jQuery.IME
+							</li>
+							<li>
+								Add an on screen keyboard feature in jQuery.IME
+							</li>
+						</ul>
+					</p>
+
+					<h3>Completed features</h3>
+
+					<p>
+						<ul>
+							<li>
+								jQuery.IME was successfully ported to Chrome and Firefox extensions. Extensions were reviewed and published in their corresponding extension repositories.
+								<ul>
+									<li>
+										Firefox extension - <a href="https://addons.mozilla.org/en-US/firefox/addon/wikimedia-input-tools/">https://addons.mozilla.org/en-US/firefox/addon/wikimedia-input-tools/</a>
+									</li>
+									<li>
+										Chrome extension - <a href=" https://chrome.google.com/webstore/detail/wikimedia-input-tools/fjnfifedbeeeibikgpggddmfbaeccaoh"> https://chrome.google.com/webstore/detail/wikimedia-input-tools/fjnfifedbeeeibikgpggddmfbaeccaoh</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								Implemented on demand loading of input methods:  Rather than loading all input methods at once, input method scripts are loaded only when the user selects a particular input method
+							</li>
+							<li>
+								The jQuery.ime and jQuery.uls upstream projects were added as git submodules in the extensions. This will provide a way to synchronize the extensions with the upstream projects in the future by simply updating the respective submodule
+							</li>
+							<li>
+								Universal Language Selector (ULS) has been successfully integrated in the extensions, thus providing the users with an easy way to choose among different languages
+							</li>
+							<li>
+								Support for contenteditable divs in jQuery.IME became one of the top priorities of the Language Engineering Team and was implemented by the team itself in very early phase of GSoC.
+							</li>
+							<li>
+								Implemented a basic working version of on-screen keyboard.
+								<ul>
+									<li>
+										Demo <a href="http://praveensingh.in/projects/jquery.ime/examples/osk.html">http://praveensingh.in/projects/jquery.ime/examples/osk.html</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</p>
+
+					<h3>Work left to be done</h3>
+
+					<p>
+						<ul>
+							<li>
+								The on-screen keyboard implementation is still very basic. Some amount of work needs to be done before it can be merged in the upstream project.
+								<ul>
+									<li>
+										Support for contenteditable divs: The current on-screen keyboard implementation works properly only on input boxes and textareas. Contenteditable div implementation is still very buggy.
+									</li>
+									<li>
+										The on-screen keyboard layout needs to be responsive to the page layout.
+									</li>
+									<li>
+										I need to discuss the overall user interface of the keyboard with Pau Giner (Interaction Designer of the Language Engineering team)
+									</li>
+								</ul>
+							</li>
+							<li>
+								The extensions do not work properly in facebook chat window. When the page is scrolled, the imeselector is not visible which makes it impossible to select a language. This needs to be fixed.
+							</li>
+						</ul>
+					</p>
+
+
+					<h3>Try it out</h3>
+
+					<p>
+						The extensions are still in beta stage. In case you encounter a bug, checkout existing issues or create a new one:
+						<ul>
+							<li>
+								<a href="https://github.com/pravee-n/jquery.ime-chrome-extension/issues">Chrome extension Issues</a>
+							</li>
+							<li>
+								<a href="https://github.com/pravee-n/jquery.ime-firefox-extension/issues">Firefox extension Issues</a>
+							</li>
+						</ul>
+						I'll be glad to hear what you think about it.
+					</p>
+
+					<h3>A word of thanks</h3>
+
+					<p>
+						I am thankful to my mentors Santhosh Thottingal and Amir Aharoni for their unmatched support and guidance throughout the summer. I really enjoyed the summer, working with such a vibrant community. I'd like to thank the Wikimedia Language Engineering Team for being so friendly yet dedicated, and to all the people in the IRC channel who helped me out over one point or another. Last but not the least, thank you Quim and Lydia for managing the program so well.
+					</p>
+
+					<p>
+						Working with the Wikimedia Community has been one of the best experiences I've ever had. I am glad to have had this opportunity.
+						Once again, thanks everyone and I hope to keep you posted over the coming months about further progress.
+					</p>
+
+
+
+					<h3>Important links and resources</h3>
+
+					<p>
+						<ul>
+							<li>
+								Firefox extension download link: <a href="https://addons.mozilla.org/En-us/firefox/addon/wikimedia-input-tools/">https://addons.mozilla.org/En-us/firefox/addon/wikimedia-input-tools/</a>
+							</li>
+							<li>
+								Chrome extension download: <a href="https://chrome.google.com/webstore/detail/wikimedia-input-tools/fjnfifedbeeeibikgpggddmfbaeccaoh">https://chrome.google.com/webstore/detail/wikimedia-input-tools/fjnfifedbeeeibikgpggddmfbaeccaoh</a>
+							</li>
+							<li>
+								The original project proposal on MediaWiki: <a href="https://www.mediawiki.org/wiki/User:Prageck/GSoC_2013_Application">https://www.mediawiki.org/wiki/User:Prageck/GSoC_2013_Application</a>
+							</li>
+							<li>
+								Project proposal on Google Melange: <a href="http://www.google-melange.com/gsoc/project/google/gsoc2013/prageck/12001">http://www.google-melange.com/gsoc/project/google/gsoc2013/prageck/12001</a>
+							</li>
+							<li>
+								jQuery.IME Firefox extension source code: <a href="https://github.com/pravee-n/jquery.ime-firefox-extension">https://github.com/pravee-n/jquery.ime-firefox-extension</a>
+							</li>
+							<li>
+								jQuery.IME Chrome extension source code: <a href="https://github.com/pravee-n/jquery.ime-chrome-extension">https://github.com/pravee-n/jquery.ime-chrome-extension</a>
+							</li>
+							<li>
+								Weekly project updates: <a href="https://www.mediawiki.org/wiki/User:Prageck/GSoC_2013_Application/Project_Updates">https://www.mediawiki.org/wiki/User:Prageck/GSoC_2013_Application/Project_Updates</a>
+							</li>
+							<li>
+								jQuery.IME project on Github: <a href="https://github.com/wikimedia/jquery.ime">https://github.com/wikimedia/jquery.ime</a>
+							</li>
+							<li>
+								jQuery.ULS project on Github: <a href="https://github.com/wikimedia/jquery.uls">https://github.com/wikimedia/jquery.uls</a>
+							</li>
+						</ul>
+					</p>
+				</section>
+			</article>
+		</div>
+		<footer>
+			<div class="inner">
+				<p class="credits">&copy; 2013 Praveen Singh</p>
+			</div>
+		</footer>
+	</body>
+</html>
